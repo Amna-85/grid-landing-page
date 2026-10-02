@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+<link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Grid landing page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="#" class="logo"><span class="logo-dot"></span>Bridge Collective</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">
+      <span class="visually-hidden">Menu</span>
+      <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+        <path d="M0 1h16M0 6h16M0 11h16" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </button>
+  </header>
+
+  <main class="hero">
+    <div class="intro">
+      <h1>A classroom for every child.</h1>
+      <p>We fund the schools, train the teachers, and measure what works — so every child we reach today becomes a graduate tomorrow.</p>
+    </div>
+
+    <ul class="stats">
+      <li class="stat">
+       <img src="./assets/images/icon-sparkle.svg" alt="" class="stat-icon">
+        <p class="stat-number">2.4M</p>
+        <h2 class="stat-title">Students reached</h2>
+        <p class="stat-desc">Across 31 countries since 2011.</p>
+      </li>
+      <li class="stat">
+        <img src="./assets/images/icon-plus.svg" alt="" class="stat-icon">
+
+        <p class="stat-number">1,284</p>
+        <h2 class="stat-title">Schools partnered</h2>
+        <p class="stat-desc">In 14 countries, from Kenya to Guatemala.</p>
+      </li>
+      <li class="stat">
+        <img src="./assets/images/icon-arrow-right.svg" alt="" class="stat-icon">
+
+        <p class="stat-number">38K</p>
+        <h2 class="stat-title">Teachers trained</h2>
+        <p class="stat-desc">Equipped with modern tools and methodology.</p>
+      </li>
+      <li class="stat">
+        <img src="./assets/images/icon-trending-up.svg" alt="" class="stat-icon">
+        <p class="stat-number">3.1×</p>
+        <h2 class="stat-title">Graduation lift</h2>
+        <p class="stat-desc">Partner schools outperform national averages 3x.</p>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Bridge Collective</p>
+    <p>Registered charity 12345678</p>
+  </footer>
+
+  <div class="overlay" hidden></div>
+  <nav id="menu" class="menu" aria-label="Main" hidden>
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Our Work</a></li>
+      <li><a href="#">Partners</a></li>
+      <li><a href="#">Annual Report</a></li>
+      <li><a href="#">Donate</a></li>
+    </ul>
+  </nav>
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Amna Naseer</a>.
+  </div> -->
+
+  <script>
+    const btn = document.querySelector('.menu-btn');
+    const menu = document.getElementById('menu');
+    const overlay = document.querySelector('.overlay');
+
+    function setMenu(open) {
+      btn.setAttribute('aria-expanded', open);
+      menu.hidden = !open;
+      overlay.hidden = !open;
+    }
+
+    btn.addEventListener('click', () => setMenu(btn.getAttribute('aria-expanded') !== 'true'));
+    overlay.addEventListener('click', () => setMenu(false));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { setMenu(false); btn.focus(); }
+    });
+  </script>
+</body>
+</html>
